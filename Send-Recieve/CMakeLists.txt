@@ -31,9 +31,7 @@ target_link_libraries(
 		${MPI_CXX_LIBRARIES}
 )
 
-
-
-# Running mpiexec after
+# Running mpiexec after build
 
 set(MPIEXEC_MAX_NUMPROCS 2)
 
@@ -47,5 +45,5 @@ add_custom_command(
 		${MPIEXEC_EXECUTABLE}
 
 		ARGS
-			${MPIEXEC_NUMPROC_FLAG} ${MPIEXEC_MAX_NUMPROCS} ./Send-Recieve
+			${MPIEXEC_NUMPROC_FLAG} ${MPIEXEC_MAX_NUMPROCS} Send-Recieve
 )

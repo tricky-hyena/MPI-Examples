@@ -5,18 +5,19 @@
 enum class ProcessId
 {
 	kUndefined = -1,
+
 	kFirst,
 	kSecond,
 };
 
-const auto kMessageTag = 0;
-
-char buffer[128];
-
-const char kMessage[] = "Hello, world!";
-
 int main(int argc, char* argv[])
 {
+	const char kMessage[] = "Hello, world!";
+
+	const auto kMessageTag = 0;
+
+	char buffer[128];
+
 	MPI_Init(&argc, &argv);
 
 	auto currentProcessId = -1;
@@ -28,11 +29,11 @@ int main(int argc, char* argv[])
 		case ProcessId::kFirst:
 		{
 			std::cout
-					<< "Sending message \""
-					<< kMessage
-					<< "\" to process with Id = "
-					<< static_cast<int>(ProcessId::kSecond)
-					<< std::endl;
+				<< "Sending message \""
+				<< kMessage
+				<< "\" to process with Id = "
+				<< static_cast<int>(ProcessId::kSecond)
+				<< std::endl;
 			
 			MPI_Send(
 				kMessage,
