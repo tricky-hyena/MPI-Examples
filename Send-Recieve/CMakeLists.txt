@@ -30,3 +30,22 @@ target_link_libraries(
 	PRIVATE
 		${MPI_CXX_LIBRARIES}
 )
+
+
+
+# Running mpiexec after
+
+set(MPIEXEC_MAX_NUMPROCS 2)
+
+add_custom_command(
+	TARGET
+		Send-Recieve
+
+	POST_BUILD
+
+	COMMAND
+		${MPIEXEC_EXECUTABLE}
+
+		ARGS
+			${MPIEXEC_NUMPROC_FLAG} ${MPIEXEC_MAX_NUMPROCS} ./Send-Recieve
+)
