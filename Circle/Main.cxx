@@ -5,8 +5,6 @@
 
 int main(int argc, char* argv[])
 {
-	const char kMessage[] = "Hello!";
-
 	std::string message = "Hello, ";
 
 	const auto kMessageTag = 0;
